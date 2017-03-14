@@ -1,5 +1,5 @@
 {
-    "name": "laravel-ardent-mongodb",
+    "name": "martin/laravel-ardent-mongodb",
     "description": "Self-validating smart models for integration of Mongodb and Laravel 5's Eloquent ORM",
     "keywords": ["validation", "laravel", "framework", "eloquent", "database", "sql", "mongodb", "orm", "activerecord", "active record"],
     "type": "library",
