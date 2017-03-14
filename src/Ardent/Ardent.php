@@ -28,8 +28,6 @@ use Symfony\Component\Translation\Translator;
  */
 abstract class Ardent extends Model {
 
-    protected $primaryKey = 'id';
-
     /**
      * The rules to be applied to the data.
      *
@@ -216,6 +214,11 @@ abstract class Ardent extends Model {
 
     const MORPHED_BY_MANY = 'morphedByMany';
 
+    const EMBEDS_ONE = 'embedsOne';
+
+    const EMBEDS_MANY = 'embedsMany';
+
+
     /**
      * Array of relations used to verify arguments used in the {@link $relationsData}
      *
@@ -225,7 +228,8 @@ abstract class Ardent extends Model {
         self::HAS_ONE, self::HAS_MANY, self::HAS_MANY_THROUGH,
         self::BELONGS_TO, self::BELONGS_TO_MANY,
         self::MORPH_TO, self::MORPH_ONE, self::MORPH_MANY,
-        self::MORPH_TO_MANY, self::MORPHED_BY_MANY
+        self::MORPH_TO_MANY, self::MORPHED_BY_MANY,
+        self::EMBEDS_ONE, self::EMBEDS_MANY
     );
 
     /**
@@ -384,6 +388,10 @@ abstract class Ardent extends Model {
             case self::MORPHED_BY_MANY:
                 $verifyArgs(['table', 'foreignKey', 'otherKey'], ['name']);
                 return $this->$relationType($relation[1], $relation['name'], $relation['table'], $relation['foreignKey'], $relation['otherKey']);
+
+            case self::EMBEDS_ONE:
+            case self::EMBEDS_MANY:
+                return $this->$relationType($relation[1]);
         }
     }
 
