@@ -8,15 +8,11 @@ Ardent
 [![Daily Downloads](https://poser.pugx.org/laravelbook/ardent/d/daily.png)](https://packagist.org/packages/laravelbook/ardent)
 
 
-Self-validating smart models for Laravel Framework 5's Eloquent ORM.
+Self-validating smart models for Integration of Mongodb and Laravel Framework 5's Eloquent ORM.
 
 Based on the Aware bundle for Laravel 3 by Colby Rabideau.
 
 Copyright (C) 2013-2015 [Max Ehsan](http://laravelbook.com/) & [Igor Santos](http://www.igorsantos.com.br)
-
-## Changelog
-
-Visit our [Releases list](https://github.com/laravelbook/ardent/releases). The changelog is made there :)
 
 ## Installation
 
@@ -32,7 +28,7 @@ Add `martingg88/laravel-ardent-mongod` as a requirement to `composer.json` (see 
 
 Update your packages with `composer update` or install with `composer install`.
 
-You can also add the package using `composer require laravelbook/ardent` and later specifying the version you want (for now, `dev-master` is your best bet).
+You can also add the package using `composer require martingg88/laravel-ardent-mongod` and later specifying the version you want (for now, `dev-master` is your best bet).
 
 ### Usage outside of Laravel (since [1.1](https://github.com/laravelbook/ardent/tree/v1.1.0))
 
@@ -425,5 +421,5 @@ $model->updateUniques();
 
 If required, you can runtime pass rules to `updateUniques`, otherwise it will use the static rules provided by your model.
 
-Note that in the above example of the rules, we did not tell the Validator which table or even which field to use as it is described in the Laravel Documentation (ie `unique:users,email,10`). Ardent is clever enough to figure it out. (Thank you to github user @Sylph)
+Note that in the above example of the rules, we did not tell the Validator which table or even which field to use as it is described in the Laravel Documentation (ie `unique:users,email,10`). Ardent is clever enough to figure it out.
 
