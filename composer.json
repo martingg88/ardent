@@ -1,7 +1,7 @@
 {
-    "name": "laravel-ardent/ardent",
-    "description": "Self-validating smart models for Laravel 5's Eloquent ORM",
-    "keywords": ["validation", "laravel", "framework", "eloquent", "database", "sql", "orm", "activerecord", "active record"],
+    "name": "laravel-ardent/mongo",
+    "description": "Self-validating smart models for integration of Mongodb and Laravel 5's Eloquent ORM",
+    "keywords": ["validation", "laravel", "framework", "eloquent", "database", "sql", "mongodb", "orm", "activerecord", "active record"],
     "type": "library",
     "license": "BSD-3-Clause",
     "authors": [
@@ -24,7 +24,8 @@
         "illuminate/database": "~5.1",
         "illuminate/validation": "~5.1",
         "illuminate/events": "~5.1",
-        "illuminate/hashing": "~5.1"
+        "illuminate/hashing": "~5.1",
+        "jenssegers/mongodb": "^3.2"
     },
     "autoload": {
         "psr-4": {
