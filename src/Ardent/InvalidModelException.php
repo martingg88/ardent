@@ -1,4 +1,4 @@
-<?php namespace LaravelArdent\Ardent;
+<?php namespace LaravelArdentMongodb\Ardent;
 
 /**
  * Used when validation fails. Contains the invalid model for easy analysis.

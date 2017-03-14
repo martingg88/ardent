@@ -1,5 +1,5 @@
 <?php
-namespace LaravelArdent\Ardent;
+namespace LaravelArdentMongodb\Ardent;
 
 class Builder extends \Illuminate\Database\Eloquent\Builder {
 

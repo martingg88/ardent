@@ -1,4 +1,4 @@
-<?php namespace LaravelArdent\Ardent\Providers;
+<?php namespace LaravelArdentMongodb\Ardent\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use LaravelArdent\Ardent\Ardent;

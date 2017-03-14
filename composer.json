@@ -34,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelArdent\\": "src/"
+            "LaravelArdentMongodb\\": "src/"
         }
     },
     "minimum-stability": "dev"

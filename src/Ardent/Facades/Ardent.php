@@ -1,4 +1,4 @@
-<?php namespace LaravelArdent\Ardent\Facades;
+<?php namespace LaravelArdentMongodb\Ardent\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

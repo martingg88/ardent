@@ -1,6 +1,11 @@
-<?php namespace LaravelArdent\Ardent;
+<?php namespace LaravelArdentMongodb\Ardent;
 
 use Closure;
+
+use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Query\Builder as JenssegersQueryBuilder;
+use Illuminate\Database\Query\Builder as EloquentQueryBuilder;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as DatabaseCapsule;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,7 +16,6 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Validation\DatabasePresenceVerifier;
 use Illuminate\Validation\Factory as ValidationFactory;
@@ -947,6 +951,34 @@ abstract class Ardent extends Model {
 
 		return $builder->setModel($this)->with($this->with);
 	}
+
+    /**
+     * Get a new query builder instance for the connection.
+     * Overriden from {@link Eloquent\Model} to handel Mongodb/MySQL connection
+     * @see Model::newBaseQueryBuilder
+     * @return \Illuminate\Database\Query\Builder
+     */
+    protected function newBaseQueryBuilder()
+    {
+        $conn = $this->getConnection();
+
+        $queryBuilder = null;
+
+        if($conn instanceof MySqlConnection){
+
+            $grammar = $conn->getQueryGrammar();
+
+            $queryBuilder = new EloquentQueryBuilder($conn, $grammar, $conn->getPostProcessor());
+
+        }else{
+
+            $queryBuilder = new JenssegersQueryBuilder($conn, $conn->getPostProcessor());
+
+        }
+
+        return $queryBuilder;
+    }
+
 
     /**
      * Returns the validator object created after {@link validate()}.
