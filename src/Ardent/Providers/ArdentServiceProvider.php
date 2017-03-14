@@ -1,7 +1,7 @@
 <?php namespace LaravelArdentMongodb\Ardent\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelArdent\Ardent\Ardent;
+use LaravelArdentMongodb\Ardent\Ardent;
 
 class ArdentServiceProvider extends ServiceProvider {
 
@@ -19,7 +19,7 @@ class ArdentServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('LaravelArdent/ardent');
+		$this->package('LaravelArdentMongodb/ardent');
 	}
 
 	/**

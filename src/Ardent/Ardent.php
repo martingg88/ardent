@@ -28,6 +28,8 @@ use Symfony\Component\Translation\Translator;
  */
 abstract class Ardent extends Model {
 
+    protected $primaryKey = 'id';
+
     /**
      * The rules to be applied to the data.
      *
