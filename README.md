@@ -20,12 +20,12 @@ Visit our [Releases list](https://github.com/laravelbook/ardent/releases). The c
 
 ## Installation
 
-Add `laravelbook/ardent` as a requirement to `composer.json` (see our latest stable version on the badges!):
+Add `martingg88/laravel-ardent-mongod` as a requirement to `composer.json` (see our latest stable version on the badges!):
 
 ```javascript
 {
     "require": {
-        "laravelbook/ardent": "3.*"
+        "martingg88/laravel-ardent-mongodb": "3.*"
     }
 }
 ```
