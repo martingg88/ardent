@@ -422,7 +422,14 @@ abstract class Ardent extends Model {
 	 * @param  string  $otherKey
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
+
+
 	public function belongsTo($related, $foreignKey = NULL, $otherKey = NULL, $relation = NULL) {
+
+
+        if (is_subclass_of($related, \Jenssegers\Mongodb\Eloquent\Model::class)) {
+            return parent::belongsTo($related, $foreignKey, $otherKey, $relation);
+        }
 
 		// If no foreign key was supplied, we can use a backtrace to guess the proper
 		// foreign key name by using the name of the relationship function, which
@@ -463,6 +470,7 @@ abstract class Ardent extends Model {
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
 	public function morphTo($name = null, $type = null, $id = null) {
+
 		// If no name is provided, we will use the backtrace to get the function name
 		// since that is most likely the name of the polymorphic interface. We can
 		// use that to get both the class and foreign key that will be utilized.
