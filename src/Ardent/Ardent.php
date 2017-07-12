@@ -426,11 +426,6 @@ abstract class Ardent extends Model {
 
 	public function belongsTo($related, $foreignKey = NULL, $otherKey = NULL, $relation = NULL) {
 
-
-        if (is_subclass_of($related, \Jenssegers\Mongodb\Eloquent\Model::class)) {
-            return parent::belongsTo($related, $foreignKey, $otherKey, $relation);
-        }
-
 		// If no foreign key was supplied, we can use a backtrace to guess the proper
 		// foreign key name by using the name of the relationship function, which
 		// when combined with an "_id" should conventionally match the columns.
@@ -442,6 +437,10 @@ abstract class Ardent extends Model {
 				$relation = $backtrace[3]['function'];
 			}
 		}
+
+        if (is_subclass_of($related, \Jenssegers\Mongodb\Eloquent\Model::class)) {
+            return parent::belongsTo($related, $foreignKey, $otherKey, $relation);
+        }
 
 		if (is_null($foreignKey)) {
 			$foreignKey = snake_case($relation).'_id';
